@@ -6,7 +6,7 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      body: ["neue-montreal", "Inter", "sans-serif"],
+      body: ["neue-montreal", "Arial"],
     },
     fontSize: {
       heading: [

@@ -32,7 +32,7 @@ const pageTitle = title ? `${title} ✦ ${SITE_NAME}` : SITE_NAME;
     src: url("/fonts/neuemontreal-bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
   }
 
   @font-face {
@@ -40,7 +40,7 @@ const pageTitle = title ? `${title} ✦ ${SITE_NAME}` : SITE_NAME;
     src: url("/fonts/neuemontreal-medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
   }
 
   @font-face {
@@ -48,6 +48,15 @@ const pageTitle = title ? `${title} ✦ ${SITE_NAME}` : SITE_NAME;
     src: url("/fonts/neuemontreal-regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
+  }
+
+  @font-face {
+    font-family: "Arial";
+    src: local("Arial");
+    ascent-override: 98%;
+    descent-override: 16%;
+    line-gap-override: 7%;
+    advance-override: 10;
   }
 </style>
