@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Container from "~/components/Container.astro";
 import Layout from "./Layout.astro";
 import Card from "~/components/Card.astro";
@@ -25,9 +26,11 @@ const { project } = Astro.props;
         <span class="text-body block">{project.data.project}</span>
       </header>
 
-      <img
-        class="w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"
-        src={project.data.image}
+      <Image
+        src={project.data.cover}
+        alt={project.data.coverAlt}
+        loading="lazy"
+        class="w-full h-full object-cover object-center"
       />
     </Card>
   </Container>

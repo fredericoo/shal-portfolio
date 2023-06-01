@@ -2,7 +2,8 @@
 project: Landing page
 client: Eular
 size: medium
-image: /projects/eular-wide.png
+cover: ./eular.png
+coverAlt: Screen displaying the interface of the Eular landing page
 ---
 
 # Eular
