@@ -19,6 +19,7 @@ const { project, delayMs } = Astro.props;
 
 <Card
   as="a"
+  rel="preload"
   href={`/projects/${project.slug}`}
   class={`opacity-0 animate-slide-in flex flex-col gap-1 p-1 bg-white group ${
     sizeClasses[project.data.size]
