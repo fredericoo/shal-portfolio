@@ -18,7 +18,9 @@ const pageTitle = title ? `${title} ✦ ${SITE_NAME}` : SITE_NAME;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class="bg-gray-3 py-4 md:py-16 xl:py-32 font-body flex flex-col gap-1">
+  <body
+    class="bg-gray-3 text-gray-12 py-4 md:py-16 xl:py-32 font-body flex flex-col gap-1"
+  >
     <slot />
     <Footer />
   </body>

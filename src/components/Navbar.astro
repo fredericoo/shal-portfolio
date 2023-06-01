@@ -1,0 +1,28 @@
+---
+import Button from "./Button.astro";
+import Card from "./Card.astro";
+import IconBack from "./IconBack.astro";
+import IconExternal from "./IconExternal.astro";
+
+const shouldShowBack = Astro.url.pathname !== "/";
+---
+
+<nav class="flex gap-1 animate-slide-in opacity-0">
+  {
+    shouldShowBack && (
+      <Button as="a" href="/">
+        <div class="rounded-full bg-gray-12 text-gray-1">
+          <IconBack />
+        </div>{" "}
+        portfolio
+      </Button>
+    )
+  }
+  <Card class="py-2 px-2 grow" />
+  <Button as="a" href="/">
+    instagram <IconExternal />
+  </Button>
+  <Button as="a" href="/">
+    email <IconExternal />
+  </Button>
+</nav>

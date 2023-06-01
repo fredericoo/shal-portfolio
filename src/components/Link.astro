@@ -14,7 +14,7 @@ const { as: Tag = "a", class: className, isExternal, ...props } = Astro.props;
 <Tag
   class:list={[
     twMerge(
-      "text-gray-12 hover:text-accent transition-colors ease-out-expo duration-300",
+      "text-gray-12 hover:text-accent transition-colors ease-out-expo duration-300 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
       className
     ),
   ]}

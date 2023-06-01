@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import Card from "~/components/Card.astro";
-import CatIcon from "~/components/CatIcon.astro";
 import { Clock } from "~/components/Clock";
 import CompanyLogo from "~/components/CompanyLogo.astro";
 import Container from "~/components/Container.astro";
+import IconCats from "~/components/IconCats.astro";
+import Navbar from "~/components/Navbar.astro";
 import ProjectCard from "~/components/ProjectCard.astro";
 import Layout from "~/layouts/Layout.astro";
 
@@ -42,6 +43,10 @@ const STAGGER_MS = 25;
     </div>
   </Container>
 
+  <Container class="perspective">
+    <Navbar />
+  </Container>
+
   <Container class="grid grid-cols-2 lg:grid-cols-4 gap-1 perspective">
     <Card
       class="flex flex-col gap-2 p-4 aspect-square items-center animate-slide-in opacity-0"
@@ -61,7 +66,7 @@ const STAGGER_MS = 25;
       style={{ animationDelay: `${STAGGER_MS * 2}ms` }}
     >
       <div class="grow flex items-center justify-center p-8">
-        <CatIcon />
+        <IconCats class="w-full" />
       </div>
       <p class="text-caption text-gray-10">
         tutor of <span class="text-gray-12">Salem</span>, <span

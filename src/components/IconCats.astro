@@ -1,7 +1,14 @@
 ---
+type Props = astroHTML.JSX.DefinedIntrinsicElements["svg"];
+
+const props = Astro.props;
 ---
 
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 857 339"
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 857 339"
+  {...props}
   ><path
     fill="#000"
     fill-rule="evenodd"

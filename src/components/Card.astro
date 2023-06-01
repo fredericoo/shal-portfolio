@@ -10,9 +10,6 @@ type Props<
 const { as: Tag = "div", class: className, ...props } = Astro.props;
 ---
 
-<Tag
-  class:list={[twMerge("rounded-2xl bg-white block h-full w-full", className)]}
-  {...props}
->
+<Tag class={twMerge("rounded-2xl bg-white block", className)} {...props}>
   <slot />
 </Tag>
