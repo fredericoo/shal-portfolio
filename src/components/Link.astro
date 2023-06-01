@@ -1,0 +1,24 @@
+---
+import { twMerge } from "tailwind-merge";
+import IconExternal from "./IconExternal.astro";
+
+type Props<T extends keyof astroHTML.JSX.DefinedIntrinsicElements = "a"> = {
+  as?: T;
+  class?: string;
+  isExternal?: boolean;
+} & Omit<astroHTML.JSX.DefinedIntrinsicElements[T], "slot">;
+
+const { as: Tag = "a", class: className, isExternal, ...props } = Astro.props;
+---
+
+<Tag
+  class:list={[
+    twMerge(
+      "text-gray-12 hover:text-accent transition-colors ease-out-expo duration-300",
+      className
+    ),
+  ]}
+  {...props}
+>
+  <slot />{isExternal && <IconExternal height="12" class="inline" />}
+</Tag>

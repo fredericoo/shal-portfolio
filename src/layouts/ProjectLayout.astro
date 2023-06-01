@@ -11,19 +11,25 @@ type Props = {
 const { project } = Astro.props;
 ---
 
-<Layout title={project.data.title}>
-  <Container>
+<Layout title={`${project.data.project} for ${project.data.client}`}>
+  <Container class="perspective">
     <Card
-      class="p-8 min-h-[80vh] flex flex-col justify-center relative overflow-hidden"
+      class="min-h-[80vh] grid md:grid-cols-2 overflow-hidden opacity-0 animate-slide-in"
     >
-      <h1 class="text-heading">{project.data.title}</h1>
+      <header class="p-8 flex flex-col justify-center">
+        <h1 class="text-heading">
+          {project.data.project}
+        </h1>
+        <span class="text-body block">{project.data.client}</span>
+      </header>
 
       <img
-        class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"
+        class="w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"
         src={project.data.image}
       />
     </Card>
-
-    <slot />
   </Container>
+  <main class="flex flex-col gap-1 pt-1">
+    <slot />
+  </main>
 </Layout>

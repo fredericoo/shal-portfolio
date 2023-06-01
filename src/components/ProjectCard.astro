@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Card from "./Card.astro";
+import IconArrow from "./IconArrow.astro";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -19,25 +20,29 @@ const { project, delayMs } = Astro.props;
 <Card
   as="a"
   href={`/projects/${project.slug}`}
-  class={`opacity-0 animate-slide-in relative bg-gray-5 group transition-colors ease-out-expo duration-600 hover:bg-[var(--project-color)] overflow-hidden ${
+  class={`opacity-0 animate-slide-in flex flex-col gap-1 p-1 bg-white group ${
     sizeClasses[project.data.size]
   }`}
   style={{
-    "--project-color": project.data.color || "white",
     animationDelay: `${delayMs}ms`,
   }}
 >
-  <header class="p-4 flex">
-    <h3 class="grow truncate">{project.data.title}</h3>
+  <header class="flex items-center">
+    <h3 class="grow truncate text-caption px-3 text-gray-10">
+      {project.data.project} for <span class="text-gray-12"
+        >{project.data.client}</span
+      >
+    </h3>
     <div
-      class="bg-grayA-4 text-gray-12 rounded-full aspect-square w-8 flex items-center justify-center"
+      class="bg-gray-4 group-hover:bg-accent text-gray-12 rounded-xl aspect-square w-6 flex items-center justify-center ease-out-expo transition-colors duration-600"
     >
-      +
+      <IconArrow />
     </div>
   </header>
-
-  <img
-    class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"
-    src={project.data.image}
-  />
+  <div class="relative grow w-full overflow-hidden rounded-xl bg-gray-3">
+    <img
+      class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"
+      src={project.data.image}
+    />
+  </div>
 </Card>

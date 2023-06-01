@@ -13,18 +13,19 @@ const allProjects = await getCollection("projects");
 const STAGGER_MS = 25;
 ---
 
-<Layout title="Kek">
+<Layout title="portfolio">
   <Container class="grid lg:grid-cols-4 gap-1 auto-rows-fr perspective">
     <Card class="p-8 md:p-16 h-full lg:col-span-3 animate-slide-in">
       <div class="flex flex-col gap-8">
         <h1 class="text-heading max-w-[30ch]">
-          hey! I’m lara, a product designer with a passion for <span
-            class="inline-block"
-            >design systems<div
-              class="w-6 h-3 align-super inline-block bg-accent rounded-full"
+          hey! I’m <span class="group inline-block"
+            >lara,<div
+              class="group-hover:w-6 transition-all ease-out-expo duration-600 w-3 h-3 align-super inline-block bg-accent rounded-full -ml-2"
             >
             </div></span
-          > and working within constraints.
+          >
+          a product designer with a passion for ✦ design&nbsp;systems and working
+          within constraints.
         </h1>
       </div>
     </Card>
@@ -35,7 +36,7 @@ const STAGGER_MS = 25;
       >
         <CompanyLogo />
       </div>
-      <p class="text-caption text-gray-11">
+      <p class="text-caption text-gray-10">
         product designer @ <span class="text-gray-12">Journey</span> since 2021
       </p>
     </div>
@@ -51,7 +52,7 @@ const STAGGER_MS = 25;
           <Clock timezone="Europe/London" client:only />
         </div>
       </div>
-      <p class="text-caption text-gray-11 w-full">
+      <p class="text-caption text-gray-10 w-full">
         based in <span class="text-gray-12">London</span>, UK
       </p>
     </Card>
@@ -62,7 +63,7 @@ const STAGGER_MS = 25;
       <div class="grow flex items-center justify-center p-8">
         <CatIcon />
       </div>
-      <p class="text-caption text-gray-11">
+      <p class="text-caption text-gray-10">
         tutor of <span class="text-gray-12">Salem</span>, <span
           class="text-gray-12">Mimo</span
         > & <span class="text-gray-12">Tapi</span>

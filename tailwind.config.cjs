@@ -6,7 +6,7 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      body: ["Neue Montreal", "sans-serif"],
+      body: ["neue-montreal", "Inter", "sans-serif"],
     },
     fontSize: {
       heading: [
@@ -15,6 +15,11 @@ module.exports = {
       ],
       body: ["1.125rem", { lineHeight: "1.5" }],
       caption: ["0.875rem", { lineHeight: "1.25", fontWeight: "500" }],
+    },
+    fontWeight: {
+      regular: "400",
+      medium: "500",
+      bold: "700",
     },
     colors: {
       transparent: "transparent",
