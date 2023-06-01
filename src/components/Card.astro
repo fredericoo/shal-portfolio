@@ -1,0 +1,18 @@
+---
+import { twMerge } from "tailwind-merge";
+type Props<
+  T extends keyof astroHTML.JSX.DefinedIntrinsicElements = keyof astroHTML.JSX.DefinedIntrinsicElements
+> = {
+  as?: T;
+  class?: string;
+} & Omit<astroHTML.JSX.DefinedIntrinsicElements[T], "slot">;
+
+const { as: Tag = "div", class: className, ...props } = Astro.props;
+---
+
+<Tag
+  class:list={[twMerge("rounded-2xl bg-white block h-full w-full", className)]}
+  {...props}
+>
+  <slot />
+</Tag>

@@ -1,0 +1,29 @@
+---
+import Container from "~/components/Container.astro";
+import Layout from "./Layout.astro";
+import Card from "~/components/Card.astro";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+
+const { project } = Astro.props;
+---
+
+<Layout title={project.data.title}>
+  <Container>
+    <Card
+      class="p-8 min-h-[80vh] flex flex-col justify-center relative overflow-hidden"
+    >
+      <h1 class="text-heading">{project.data.title}</h1>
+
+      <img
+        class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"
+        src={project.data.image}
+      />
+    </Card>
+
+    <slot />
+  </Container>
+</Layout>

@@ -1,15 +1,77 @@
 ---
+import { getCollection } from "astro:content";
+import Card from "~/components/Card.astro";
+import CatIcon from "~/components/CatIcon.astro";
+import { Clock } from "~/components/Clock";
+import CompanyLogo from "~/components/CompanyLogo.astro";
+import Container from "~/components/Container.astro";
+import ProjectCard from "~/components/ProjectCard.astro";
+import Layout from "~/layouts/Layout.astro";
+
+const allProjects = await getCollection("projects");
+
+const STAGGER_MS = 25;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Kek">
+  <Container class="grid lg:grid-cols-4 gap-1 auto-rows-fr perspective">
+    <Card class="p-8 md:p-16 h-full lg:col-span-3 animate-slide-in">
+      <div class="flex flex-col gap-8">
+        <h1 class="text-heading max-w-[30ch]">
+          hey! I’m lara, a product designer with a passion for <span
+            class="inline-block"
+            >design systems<div
+              class="w-6 h-3 align-super inline-block bg-accent rounded-full"
+            >
+            </div></span
+          > and working within constraints.
+        </h1>
+      </div>
+    </Card>
+
+    <div class="flex flex-col gap-2 p-4 items-center justify-center">
+      <div
+        class="w-24 bg-gray-1 rounded-full aspect-square flex items-center justify-center p-2"
+      >
+        <CompanyLogo />
+      </div>
+      <p class="text-caption text-gray-11">
+        product designer @ <span class="text-gray-12">Journey</span> since 2021
+      </p>
+    </div>
+  </Container>
+
+  <Container class="grid grid-cols-2 lg:grid-cols-4 gap-1 perspective">
+    <Card
+      class="flex flex-col gap-2 p-4 aspect-square items-center animate-slide-in opacity-0"
+      style={{ animationDelay: `${STAGGER_MS * 1}ms` }}
+    >
+      <div class="grow flex items-center justify-center w-[calc(100%-2rem)]">
+        <div class="w-full bg-gray-2 rounded-full aspect-square">
+          <Clock timezone="Europe/London" client:only />
+        </div>
+      </div>
+      <p class="text-caption text-gray-11 w-full">
+        based in <span class="text-gray-12">London</span>, UK
+      </p>
+    </Card>
+    <Card
+      class="p-4 flex flex-col opacity-0 animate-slide-in"
+      style={{ animationDelay: `${STAGGER_MS * 2}ms` }}
+    >
+      <div class="grow flex items-center justify-center p-8">
+        <CatIcon />
+      </div>
+      <p class="text-caption text-gray-11">
+        tutor of <span class="text-gray-12">Salem</span>, <span
+          class="text-gray-12">Mimo</span
+        > & <span class="text-gray-12">Tapi</span>
+      </p>
+    </Card>
+    {
+      allProjects.map((project, index) => (
+        <ProjectCard delayMs={(index + 3) * STAGGER_MS} project={project} />
+      ))
+    }
+  </Container>
+</Layout>

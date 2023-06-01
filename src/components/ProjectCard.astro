@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Card from "./Card.astro";
+
+type Props = {
+  project: CollectionEntry<"projects">;
+  delayMs: number;
+};
+
+const sizeClasses: Record<Props["project"]["data"]["size"], string> = {
+  small: "aspect-square col-span-2 md:col-span-1",
+  medium: "aspect-square md:aspect-[2/1] col-span-2",
+  large: "aspect-square md:aspect-[3/1] md:col-span-3",
+};
+
+const { project, delayMs } = Astro.props;
+---
+
+<Card
+  as="a"
+  href={`/projects/${project.slug}`}
+  class={`opacity-0 animate-slide-in relative bg-gray-5 group transition-colors ease-out-expo duration-600 hover:bg-[var(--project-color)] overflow-hidden ${
+    sizeClasses[project.data.size]
+  }`}
+  style={{
+    "--project-color": project.data.color || "white",
+    animationDelay: `${delayMs}ms`,
+  }}
+>
+  <header class="p-4 flex">
+    <h3 class="grow truncate">{project.data.title}</h3>
+    <div
+      class="bg-grayA-4 text-gray-12 rounded-full aspect-square w-8 flex items-center justify-center"
+    >
+      +
+    </div>
+  </header>
+
+  <img
+    class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"
+    src={project.data.image}
+  />
+</Card>
