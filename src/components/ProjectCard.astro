@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
+import { Picture } from "@astrojs/image/components";
 import Card from "./Card.astro";
 import IconArrow from "./IconArrow.astro";
 
@@ -14,6 +14,12 @@ const sizeClasses: Record<Props["project"]["data"]["size"], string> = {
   medium: "aspect-square md:aspect-[2/1] col-span-2",
   large: "aspect-square md:aspect-[3/1] md:col-span-3",
 };
+
+const cardSizeAspectRatio = {
+  small: "1:1",
+  medium: "2:1",
+  large: "3:1",
+} as const satisfies Record<Props["project"]["data"]["size"], string>;
 
 const { project, delayMs } = Astro.props;
 ---
@@ -45,8 +51,10 @@ const { project, delayMs } = Astro.props;
     class="relative grow w-full overflow-hidden rounded-xl bg-gray-3 group-hover:bg-[var(--project-color)] transition-colors duration-600 ease-out-expo"
     style={{ "--project-color": project.data.color ?? "white" }}
   >
-    <Image
+    <Picture
+      widths={[400, 800, 1200]}
       src={project.data.cover}
+      aspectRatio={cardSizeAspectRatio[project.data.size]}
       alt={project.data.coverAlt}
       loading="lazy"
       class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"

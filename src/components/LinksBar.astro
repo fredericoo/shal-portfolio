@@ -1,0 +1,17 @@
+---
+import Button from "./Button.astro";
+import Card from "./Card.astro";
+import IconEmail from "./IconEmail.astro";
+import IconExternal from "./IconExternal.astro";
+---
+
+<nav class="flex gap-1 animate-slide-in opacity-0">
+  <Button as="a" href="https://instagram.com/laraluzr">
+    instagram <IconExternal />
+  </Button>
+  <Button as="div">
+    <IconEmail />
+    <span class="text-gray-10">laraluzreis@gmail.com</span>
+  </Button>
+  <Card class="py-2 px-2 grow" />
+</nav>

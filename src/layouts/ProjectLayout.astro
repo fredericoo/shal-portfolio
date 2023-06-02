@@ -1,10 +1,10 @@
 ---
-import { Image } from "astro:assets";
 import Container from "~/components/Container.astro";
 import Layout from "./Layout.astro";
 import Card from "~/components/Card.astro";
 import type { CollectionEntry } from "astro:content";
 import Navbar from "~/components/Navbar.astro";
+import { Picture } from "@astrojs/image/components";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -13,7 +13,10 @@ type Props = {
 const { project } = Astro.props;
 ---
 
-<Layout title={`${project.data.project} for ${project.data.client}`}>
+<Layout
+  ogImageSrc={`/projects/${project.slug}/og-image.png`}
+  title={`${project.data.project} for ${project.data.client}`}
+>
   <Container class="perspective flex flex-col gap-1">
     <Navbar />
     <Card
@@ -26,8 +29,10 @@ const { project } = Astro.props;
         <span class="text-body block">{project.data.project}</span>
       </header>
 
-      <Image
+      <Picture
         src={project.data.cover}
+        aspectRatio="1:1"
+        widths={[400, 800, 1200]}
         alt={project.data.coverAlt}
         loading="lazy"
         class="w-full h-full object-cover object-center"
