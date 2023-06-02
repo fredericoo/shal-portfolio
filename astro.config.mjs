@@ -20,5 +20,8 @@ export default defineConfig({
     }),
   ],
   output: "hybrid",
+  experimental: {
+    hybridOutput: true,
+  },
   adapter: vercelStatic(),
 });
