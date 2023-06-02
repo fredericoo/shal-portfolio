@@ -20,6 +20,9 @@ export default defineConfig({
     }),
   ],
   output: "static",
+  experimental: {
+    assets: true,
+  },
   adapter: vercelStatic({
     imageService: true,
     imagesConfig: {
