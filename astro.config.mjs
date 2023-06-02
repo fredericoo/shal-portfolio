@@ -4,7 +4,6 @@ import preact from "@astrojs/preact";
 import mdx from "@astrojs/mdx";
 import image from "@astrojs/image";
 import prefetch from "@astrojs/prefetch";
-import vercelStatic from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,4 +18,5 @@ export default defineConfig({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
   ],
+  compressHTML: true,
 });

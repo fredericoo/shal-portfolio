@@ -52,7 +52,7 @@ const { project, delayMs } = Astro.props;
     style={{ "--project-color": project.data.color ?? "white" }}
   >
     <Picture
-      widths={[400, 800, 1200]}
+      widths={[640, 1024, 1920]}
       src={project.data.cover}
       aspectRatio={cardSizeAspectRatio[project.data.size]}
       alt={project.data.coverAlt}
