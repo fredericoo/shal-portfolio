@@ -4,12 +4,15 @@ import Footer from "~/components/Footer.astro";
 type Props = {
   title?: string;
   ogImageSrc?: string;
+  ogDescription?: string;
 };
 
-const { title, ogImageSrc } = Astro.props;
+const { title, ogDescription, ogImageSrc } = Astro.props;
 
 const SITE_NAME = "lara reis";
-const pageTitle = title ? `${title} ✦ ${SITE_NAME}` : SITE_NAME;
+const pageTitle = title
+  ? `${SITE_NAME} ✦ ${title.toLocaleLowerCase()}`
+  : SITE_NAME;
 ---
 
 <html lang="en">
@@ -17,7 +20,39 @@ const pageTitle = title ? `${title} ✦ ${SITE_NAME}` : SITE_NAME;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <title>{pageTitle}</title>
+    <meta name="title" content={pageTitle} />
+    {!!ogDescription && <meta property="description" content={ogDescription} />}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={pageTitle} />
+    {
+      !!ogDescription && (
+        <meta property="og:description" content={ogDescription} />
+      )
+    }
     {!!ogImageSrc && <meta property="og:image" content={ogImageSrc} />}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={pageTitle} />
+    {
+      !!ogDescription && (
+        <meta property="twitter:description" content={ogDescription} />
+      )
+    }
+    {!!ogImageSrc && <meta property="twitter:image" content={ogImageSrc} />}
+
     <link
       rel="preload"
       href="/fonts/neuemontreal-regular.woff2"
@@ -25,7 +60,6 @@ const pageTitle = title ? `${title} ✦ ${SITE_NAME}` : SITE_NAME;
       type="font/woff2"
       crossorigin
     />
-    <title>{pageTitle}</title>
   </head>
   <body
     class="bg-gray-3 text-gray-12 py-4 md:py-16 xl:py-32 font-body flex flex-col gap-1"
