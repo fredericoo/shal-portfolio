@@ -28,7 +28,7 @@ const { project, delayMs } = Astro.props;
   as="a"
   rel="preload"
   href={`/projects/${project.slug}`}
-  class={`opacity-0 animate-slide-in flex flex-col gap-1 p-1 bg-white group ${
+  class={`opacity-0 animate-slide-in flex flex-col gap-1 p-1 bg-white group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
     sizeClasses[project.data.size]
   }`}
   style={{
