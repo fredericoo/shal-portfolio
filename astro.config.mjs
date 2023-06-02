@@ -20,13 +20,5 @@ export default defineConfig({
     }),
   ],
   output: "static",
-  experimental: {
-    assets: true,
-  },
-  adapter: vercelStatic({
-    imageService: true,
-    imagesConfig: {
-      sizes: [320, 640, 768, 1024, 1200, 1600, 1920],
-    },
-  }),
+  adapter: vercelStatic(),
 });
