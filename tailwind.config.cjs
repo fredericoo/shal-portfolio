@@ -28,6 +28,28 @@ module.exports = {
       accent: "var(--color-accent)",
     },
     extend: {
+      typography: () => ({
+        shal: {
+          css: {
+            "--tw-prose-body": "hsl(var(--gray11))",
+            "--tw-prose-headings": "hsl(var(--gray12))",
+            "--tw-prose-lead": "hsl(var(--gray12))",
+            "--tw-prose-links": "hsl(var(--gray12))",
+            "--tw-prose-bold": "hsl(var(--gray12))",
+            "--tw-prose-counters": "hsl(var(--gray12))",
+            "--tw-prose-bullets": "hsl(var(--gray10))",
+            "--tw-prose-hr": "hsl(var(--gray6))",
+            "--tw-prose-quotes": "hsl(var(--gray10))",
+            "--tw-prose-quote-borders": "hsl(var(--gray6))",
+            "--tw-prose-captions": "hsl(var(--gray10))",
+            "--tw-prose-code": "hsl(var(--gray12))",
+            "--tw-prose-pre-code": "hsl(var(--gray1))",
+            "--tw-prose-pre-bg": "hsl(var(--gray12))",
+            "--tw-prose-th-borders": "hsl(var(--gray8))",
+            "--tw-prose-td-borders": "hsl(var(--gray6))",
+          },
+        },
+      }),
       transitionDuration: {
         600: "600ms",
       },
@@ -52,10 +74,10 @@ module.exports = {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
     require("windy-radix-palette")({
       colors: {
         gray: radixColors.gray,
-        grayA: radixColors.grayA,
       },
     }),
     plugin(function ({ addBase }) {

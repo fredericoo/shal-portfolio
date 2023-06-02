@@ -8,9 +8,6 @@ import prefetch from "@astrojs/prefetch";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), preact(), mdx(), prefetch({ throttle: 3 })],
-  server: {
-    headers: { "Cache-Control": "public, max-age=31536000, immutable" },
-  },
   experimental: {
     assets: true,
   },

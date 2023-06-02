@@ -36,12 +36,15 @@ const { project, delayMs } = Astro.props;
       >
     </h3>
     <div
-      class="bg-gray-4 group-hover:bg-gray-12 text-gray-12 group-hover:text-gray-1 rounded-xl aspect-square w-6 flex items-center justify-center ease-out-expo transition-colors duration-600"
+      class="bg-gray-12 text-gray-1 rounded-xl aspect-square w-6 flex items-center justify-center ease-out-expo transition-colors duration-600"
     >
       <IconArrow />
     </div>
   </header>
-  <div class="relative grow w-full overflow-hidden rounded-xl bg-gray-3">
+  <div
+    class="relative grow w-full overflow-hidden rounded-xl bg-gray-3 group-hover:bg-[var(--project-color)] transition-colors duration-600 ease-out-expo"
+    style={{ "--project-color": project.data.color ?? "white" }}
+  >
     <Image
       src={project.data.cover}
       alt={project.data.coverAlt}
