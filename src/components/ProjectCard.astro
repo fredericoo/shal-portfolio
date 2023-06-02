@@ -56,8 +56,8 @@ const { project, delayMs } = Astro.props;
       src={project.data.cover}
       aspectRatio={cardSizeAspectRatio[project.data.size]}
       alt={project.data.coverAlt}
-      loading="lazy"
-      format="webp"
+      format="png"
+      formats={["webp", "png"]}
       class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 group-active:scale-100 ease-out-expo transition-transform duration-600"
     />
   </div>
