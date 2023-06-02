@@ -19,6 +19,6 @@ export default defineConfig({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
   ],
-  output: "server",
+  output: "static",
   adapter: vercelStatic(),
 });
