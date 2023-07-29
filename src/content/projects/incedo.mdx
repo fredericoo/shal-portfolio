@@ -10,23 +10,52 @@ import * as C from "~/components/content";
 
 <C.Container>
 
-# This is a test
+    <C.Picture
+      widths={[640, 1024, 1920]}
+      src={"/projects/oi.png"}
+      aspectRatio={"1402:747"}
+      alt={""}
+      format="png"
+      formats={["webp", "png"]}
+      class="rounded-2xl m-0"
+    />
 
-<C.Card>I can write stuff inside a card</C.Card>
+    <C.Picture
+      widths={[640, 1024, 1920]}
+      src={"/projects/aa1.png"}
+      aspectRatio={"16:9"}
+      alt={""}
+      format="png"
+      formats={["webp", "png"]}
+      class="rounded-2xl m-0"
+    />
 
-</C.Container>
+
+    <C.Prose>
+        ## "Funciona, shoshal."
+    </C.Prose>
 
 <C.Grid>
-    <C.Card>
 
-    # This is a heading
+<C.Picture
+  widths={[640, 1024, 1920]}
+  src={"/projects/aa2.png"}
+  aspectRatio={"16:9"}
+  alt={""}
+  format="png"
+  formats={["webp", "png"]}
+  class="rounded-2xl m-0"
+/>
 
-    </C.Card>
-
-    <C.Card>
-
-    # This is a heading
-
-    </C.Card>
-
+<C.Picture
+  widths={[640, 1024, 1920]}
+  src={"/projects/aa3.png"}
+  aspectRatio={"16:9"}
+  alt={""}
+  format="png"
+  formats={["webp", "png"]}
+  class="rounded-2xl m-0"
+/>
 </C.Grid>
+
+</C.Container>

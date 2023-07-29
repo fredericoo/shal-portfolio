@@ -41,9 +41,7 @@ const { project } = Astro.props;
       />
     </Card>
   </Container>
-  <main
-    class="flex flex-col gap-1 pt-1 prose prose-shal md:prose-lg prose-h1:text-[red] prose-strong:font-medium prose-headings:font-medium max-w-none opacity-0 animate-slide-in"
-  >
+  <main class="flex flex-col gap-1 pt-1 max-w-none opacity-0 animate-slide-in">
     <slot />
   </main>
 </Layout>
